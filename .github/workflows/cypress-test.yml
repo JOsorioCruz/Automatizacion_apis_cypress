@@ -21,6 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Allure CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y allure
+
       - name: Clean Allure Report Directory
         run: npm run limpiar-reporte
 
@@ -28,7 +33,7 @@ jobs:
         run: npm run ejecutar-pruebas
 
       - name: List Allure Results
-        run: ls -la ./allure-results
+        run: ls -la ./allure-results  # Verifica que hay archivos generados en allure-results
 
       - name: Generate Allure Report as Static HTML
         run: allure generate ./allure-results --clean -o ./allure-report
