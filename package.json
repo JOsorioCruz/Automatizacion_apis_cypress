@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress run --headed",
-    "test2": "cypress open"
+    "test2": "cypress open",
+    "clean-report": "rimraf ./cypress/reports"
   },
   "private": true,
   "keywords": [],
