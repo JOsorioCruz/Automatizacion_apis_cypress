@@ -16,39 +16,27 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.x'
+          node-version: '21.7.3'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Install Allure CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y allure
+      - name: Instalar Allure CLI
+        run: npm install -g allure-commandline --save-dev
 
-      - name: Clean Allure Report Directory
+      - name: Limpiar directorio de reporte Allure
         run: npm run limpiar-reporte
 
-      - name: Run Cypress Tests with Allure Adapter
-        env:
-          CYPRESS_ENV: allure=true
-        run: npm run ejecutar-pruebas || echo "Cypress tests failed but continuing"
+      - name: Ejecutar pruebas de Cypress con Allure Adapter
+        run: npm run ejecutar-pruebas
 
-      - name: Ensure Allure Report Directory Exists
-        run: mkdir -p ./allure-report
+      - name: Listar resultados de Allure
+        run: ls -la ./allure-results
 
-      - name: Check for Allure Results and Generate Report if Available
-        run: |
-          if [ -d "./allure-results" ] && [ "$(ls -A ./allure-results)" ]; then
-            allure generate ./allure-results --clean -o ./allure-report
-          else
-            echo "No allure results found, skipping report generation."
-            echo "No test results available" > ./allure-report/NO_RESULTS.txt
-          fi
+      - name: Generar reporte Allure como HTML estático
+        run: allure generate ./allure-results --clean -o ./allure-report
 
-      # Subir el artefacto siempre, incluso si las pruebas fallan
-      - name: Upload Allure Report
-        if: always()
+      - name: Subir reporte Allure
         uses: actions/upload-artifact@v3
         with:
           name: Allure Report
