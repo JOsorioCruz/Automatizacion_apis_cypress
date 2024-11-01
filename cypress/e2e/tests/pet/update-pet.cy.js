@@ -10,7 +10,7 @@ describe('Update pet', () => {
         const petName = CommonMethods.generateRandomString()
         const photoUls = [`https://${CommonMethods.generateRandomString()}.png`];
         const tags = CommonMethods.generateRandomString();
-        const status = PetMethods.generateRandomStatus()
+        const status = CommonMethods.generateRandomStatusFaker();
         const body = new PetBodyBuilder().setBodyWithRandomData(petId).build();
         const updatedBody = new PetBodyBuilder().setPetId(petId).setCategoryId(categotyId).setCategory(category).setPetName(petName).setPhotoUrls(photoUls).setTags([tags]).setStatus(status).build()
 

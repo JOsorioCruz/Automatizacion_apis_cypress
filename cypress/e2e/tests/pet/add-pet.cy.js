@@ -1,4 +1,3 @@
-const { CommonData } = require("../../services/common/common.data");
 const { CommonMethods } = require('../../services/common/common.methods');
 const { PetBodyBuilder } = require("../../services/pet/pet-body.builder");
 const { PetMethods } = require("../../services/pet/pet.methods");
@@ -7,10 +6,10 @@ describe("Add pet", () => {
   const petId = PetMethods.generatePetId();
   const categotyId = PetMethods.generateCategoryId();
   const category = PetMethods.generateRandomCategory();
-  const petName = CommonMethods.generateRandomString()
-  const photoUls = [`https://${CommonMethods.generateRandomString()}.png`];
+  const petName = CommonMethods.generateRandomPetNameFaker();
+  const photoUls = [`${CommonMethods.generateRandomPhotoFaker()}.png`];
   const tags = CommonMethods.generateRandomString();
-  const status = PetMethods.generateRandomStatus()
+  const status = CommonMethods.generateRandomStatusFaker();
 
   const petBody = new PetBodyBuilder()
     .setPetId(petId)
@@ -21,6 +20,7 @@ describe("Add pet", () => {
     .setTags([tags])
     .setStatus(status)
     .build();
+
   it("Add pet - happy path", () => {
     PetMethods.addPet(petBody).then((response) => {
         expect(response.status).to.eql(200)

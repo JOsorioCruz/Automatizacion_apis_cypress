@@ -10,7 +10,7 @@ describe('Find pet', () => {
         const petName = CommonMethods.generateRandomString()
         const photoUls = [`https://${CommonMethods.generateRandomString()}.png`];
         const tags = CommonMethods.generateRandomString();
-        const status = PetMethods.generateRandomStatus()
+        const status = CommonMethods.generateRandomStatusFaker();
         const body = new PetBodyBuilder().setPetId(petId).setCategoryId(categotyId).setCategory(category).setPetName(petName).setPhotoUrls(photoUls).setTags([tags]).setStatus(status).build()
         
         cy.log('PRE-CONDITION : Create a pet')

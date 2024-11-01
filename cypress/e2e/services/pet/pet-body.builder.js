@@ -64,7 +64,7 @@ export class PetBodyBuilder {
     this.body.name = CommonMethods.generateRandomString()
     this.body.photoUrls = [`https://${CommonMethods.generateRandomString()}`]
     this.body.tags = [{id: 0, name: CommonMethods.generateRandomString()}]
-    this.body.status = PetMethods.generateRandomStatus();
+    this.body.status = CommonMethods.generateRandomStatusFaker();
     return this
   }
 

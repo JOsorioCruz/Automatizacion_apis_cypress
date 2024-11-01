@@ -3,7 +3,7 @@ import { PetBodyBuilder } from './pet-body.builder';
 
 export class PetMethods {
   static addPet(body, headers = CommonData.header) {
-    return cy.request({
+    return cy.api({
       method: "POST",
       url: "/pet",
       headers: headers,
@@ -12,7 +12,7 @@ export class PetMethods {
   }
 
   static updatePet(body, headers = CommonData.header) {
-    return cy.request({
+    return cy.api({
       method: "PUT",
       url: "/pet",
       headers: headers,
@@ -21,7 +21,7 @@ export class PetMethods {
   }
 
   static getPetById(petId, headers = CommonData.header, failOnStatusCode = true){
-    return cy.request({
+    return cy.api({
       method: 'GET',
       url: `/pet/${petId}`,
       headers: headers,
@@ -30,7 +30,7 @@ export class PetMethods {
   }
 
   static getPetsByStatus(status, headers = CommonData.header){
-    return cy.request({
+    return cy.api({
       method: 'GET',
       url: `/pet/findByStatus?status=${status}`,
       headers: headers
@@ -38,7 +38,7 @@ export class PetMethods {
   }
 
   static deletePet(petId, apiKey){
-    return cy.request({
+    return cy.api({
       method: 'DELETE',
       url: `/pet/${petId}`,
       headers: {'api_key': apiKey}
@@ -55,16 +55,6 @@ export class PetMethods {
 
   static generateRandomCategory() {
     const arr = ["birds", "cats", "dogs", "rabbits", "guinea pigs", "fish"];
-    const randomIndex = Math.floor(Math.random() * arr.length);
-
-    // get random item
-    const item = arr[randomIndex];
-
-    return item;
-  }
-
-  static generateRandomStatus() {
-    const arr = ["available", "pending", "sold"];
     const randomIndex = Math.floor(Math.random() * arr.length);
 
     // get random item
