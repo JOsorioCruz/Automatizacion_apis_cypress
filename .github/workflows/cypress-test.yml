@@ -28,6 +28,7 @@ jobs:
         run: npx cypress run --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/reports,reportFilename=index.html,overwrite=false,html=true
 
       - name: Upload HTML Report
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: HTML report
