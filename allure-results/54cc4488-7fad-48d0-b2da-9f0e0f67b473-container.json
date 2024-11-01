@@ -1,1 +1,0 @@
-{"uuid":"54cc4488-7fad-48d0-b2da-9f0e0f67b473","children":["f37b9d47-c11e-433d-9a64-f50b866fec0c"],"befores":[{"status":"passed","statusDetails":{},"stage":"finished","steps":[],"attachments":[],"parameters":[],"name":"\"before all\" hook","start":1730439990843,"stop":1730439990867}],"afters":[],"name":"Add pet"}
