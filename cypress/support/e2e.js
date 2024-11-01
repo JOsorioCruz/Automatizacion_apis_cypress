@@ -16,7 +16,8 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-plugin-api'
-import 'cypress-mochawesome-reporter/register';
+// import 'cypress-mochawesome-reporter/register';
+import '@mmisty/cypress-allure-adapter/support';
 
 
 // Alternatively you can use CommonJS syntax:

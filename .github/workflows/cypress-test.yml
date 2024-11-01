@@ -16,19 +16,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '21.7.3'  # Usa la versión específica de Node.js
+          node-version: '21.7.3'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Clean Report Directory
-        run: rm -rf cypress/reports && mkdir -p cypress/reports
+      - name: Clean Allure Report Directory
+        run: npm run limpiar-reporte
 
-      - name: Run Cypress Tests with Mochawesome Reporter
-        run: npx cypress run --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/reports,reportFilename=index.html,overwrite=false,html=true
+      - name: Run Cypress Tests with Allure Adapter
+        run: npm run ejecutar-pruebas
 
-      - name: Upload HTML Report
+      - name: Generate Allure Report
+        run: npm run generar-reporte
+
+      - name: Upload Allure Report
         uses: actions/upload-artifact@v3
         with:
-          name: HTML report
-          path: ./cypress/reports/
+          name: Allure Report
+          path: ./allure-report
