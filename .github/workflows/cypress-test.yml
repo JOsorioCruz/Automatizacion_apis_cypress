@@ -16,29 +16,28 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '21.7.3'
+          node-version: '18.x'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Instalar Allure CLI
+      - name: Install Allure CLI via NPM
         run: npm install -g allure-commandline --save-dev
 
-      - name: Limpiar directorio de reporte Allure
+      - name: Verify Allure Installation
+        run: allure --version
+
+      - name: Clean Allure Report Directory
         run: npm run limpiar-reporte
 
-      - name: Ejecutar pruebas de Cypress con Allure Adapter
+      - name: Run Cypress Tests with Allure Adapter
         run: npm run ejecutar-pruebas
 
-      - name: Listar resultados de Allure
-        run: ls -la ./allure-results  # Verifica que hay archivos generados en allure-results
-
-      - name: Generar reporte Allure como HTML estático
+      - name: Generate Allure Report as Static HTML
         run: allure generate ./allure-results --clean -o ./allure-report
 
-      - name: Subir reporte Allure
-        uses: actions/upload-artifact@v3
+      - name: Deploy Allure Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: Allure Report
-          path: ./allure-report
-          retention-days: 5
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
