@@ -41,6 +41,8 @@ jobs:
             allure generate ./allure-results --clean -o ./allure-report
           else
             echo "No allure results found, skipping report generation."
+            # Forzar la generación de un archivo vacío en allure-report para garantizar que se suba el artefacto
+            echo "No test results available" > ./allure-report/NO_RESULTS.txt
           fi
 
       # Subir el artefacto incluso si las pruebas fallan
