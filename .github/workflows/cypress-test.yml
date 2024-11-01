@@ -6,7 +6,6 @@ on:
       - allure-report
       - develop
 
-
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
@@ -33,6 +32,11 @@ jobs:
 
       - name: Generate Allure Report
         run: npm run generar-reporte
+
+      - name: Create Windows Batch File to Open Allure Report
+        run: |
+          echo @echo off > ./allure-report/abrir_reporte.bat
+          echo allure open . >> ./allure-report/abrir_reporte.bat
 
       - name: Upload Allure Report
         uses: actions/upload-artifact@v3
