@@ -30,13 +30,8 @@ jobs:
       - name: List Allure Results
         run: ls -la ./allure-results
 
-      - name: Generate Allure Report
-        run: npm run generar-reporte
-
-      - name: Create Windows Batch File to Open Allure Report
-        run: |
-          echo @echo off > ./allure-report/abrir_reporte.bat
-          echo allure open . >> ./allure-report/abrir_reporte.bat
+      - name: Generate Allure Report as Static HTML
+        run: allure generate ./allure-results --clean -o ./allure-report
 
       - name: Upload Allure Report
         uses: actions/upload-artifact@v3
