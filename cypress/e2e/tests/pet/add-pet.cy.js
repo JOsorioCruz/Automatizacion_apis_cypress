@@ -23,7 +23,7 @@ describe("Add pet", () => {
 
   it("Add pet - happy path", () => {
     PetMethods.addPet(petBody).then((response) => {
-        expect(response.status).to.eql(206)
+        expect(response.status).to.eql(200)
         expect(response.body.id).to.eql(petId)
         expect(response.body.category.id).to.eql(categotyId)
         expect(response.body.category.name).to.eql(category)
