@@ -6,6 +6,7 @@ on:
       - allure-report
       - develop
 
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
@@ -26,6 +27,9 @@ jobs:
 
       - name: Run Cypress Tests with Allure Adapter
         run: npm run ejecutar-pruebas
+
+      - name: List Allure Results
+        run: ls -la ./allure-results
 
       - name: Generate Allure Report
         run: npm run generar-reporte
