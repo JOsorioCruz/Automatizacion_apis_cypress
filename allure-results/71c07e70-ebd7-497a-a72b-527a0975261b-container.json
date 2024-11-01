@@ -1,0 +1,1 @@
+{"uuid":"71c07e70-ebd7-497a-a72b-527a0975261b","children":["5c20d17e-5c08-4662-a607-7984c014c44a"],"befores":[{"status":"passed","statusDetails":{},"stage":"finished","steps":[],"attachments":[],"parameters":[],"name":"\"before all\" hook","start":1730439996336,"stop":1730439996360}],"afters":[],"name":"Delete pet"}

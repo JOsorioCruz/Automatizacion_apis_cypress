@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","548","Find pet in status pending","Find pet","Fri Nov 01 00:46:43 COT 2024","passed","Fri Nov 01 00:46:43 COT 2024","","","",""
+"","417","Delete pet - happy path","Delete pet","Fri Nov 01 00:46:36 COT 2024","passed","Fri Nov 01 00:46:36 COT 2024","","","",""
+"","928","Find pet in status available","Find pet","Fri Nov 01 00:46:41 COT 2024","passed","Fri Nov 01 00:46:42 COT 2024","","","",""
+"","295","Find pet by Id - happy path","Find pet","Fri Nov 01 00:46:41 COT 2024","passed","Fri Nov 01 00:46:41 COT 2024","","","",""
+"","286","Update pet - happy path","Update pet","Fri Nov 01 00:46:48 COT 2024","passed","Fri Nov 01 00:46:48 COT 2024","","","",""
+"","617","Add pet - happy path","Add pet","Fri Nov 01 00:46:30 COT 2024","passed","Fri Nov 01 00:46:31 COT 2024","","","",""
+"","571","Find pet in status sold","Find pet","Fri Nov 01 00:46:42 COT 2024","passed","Fri Nov 01 00:46:43 COT 2024","","","",""
