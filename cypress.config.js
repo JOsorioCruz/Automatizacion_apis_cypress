@@ -3,7 +3,7 @@ const  {configureAllureAdapterPlugins} = require ('@mmisty/cypress-allure-adapte
 
 module.exports = defineConfig({
   retries: 1,
-  video: false,
+  video: true,
   screenshotOnRunFailure: true,
   e2e: {
     baseUrl: 'https://petstore.swagger.io/v2',
